@@ -1,0 +1,48 @@
+{
+  "entities": {
+    "users": {
+      "title": "User Profile",
+      "description": "Stores user demographics, lifestyle, and behavioral state.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "age": { "type": "integer" },
+        "gender": { "type": "string", "enum": ["male", "female", "other"] },
+        "goal": { "type": "string", "enum": ["weight_loss", "maintain", "gain"] },
+        "preference": { "type": "string", "enum": ["veg", "non-veg"] },
+        "lifestyle": { "type": "string", "enum": ["active", "sedentary"] },
+        "sleep_pattern": { "type": "string" },
+        "eating_habits": { "type": "string" },
+        "stress_level": { "type": "string", "enum": ["low", "medium", "high"] },
+        "createdAt": { "type": "integer" },
+        "updatedAt": { "type": "integer" }
+      },
+      "required": ["userId", "age", "gender", "goal", "preference", "lifestyle", "createdAt"]
+    },
+    "decisionLogs": {
+      "title": "Decision Tracking",
+      "description": "Logs user interactions with nudges and scanned items.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "timestamp": { "type": "integer" },
+        "context": { "type": "object" },
+        "scannedFood": { "type": "string" },
+        "nudge": { "type": "string" },
+        "action": { "type": "string", "enum": ["ignored", "swapped", "declined"] },
+        "riskScore": { "type": "number" }
+      },
+      "required": ["userId", "timestamp", "riskScore"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "users",
+      "description": "Primary user profile storage"
+    },
+    "logs/{logId}": {
+      "schema": "decisionLogs",
+      "description": "Historical logs for behavioral intelligence"
+    }
+  }
+}

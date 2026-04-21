@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply transition-colors duration-500;
+  }
+}
+
+.light-mode {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+.dark-mode {
+  background-color: #000000;
+  color: #ffffff;
+}

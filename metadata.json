@@ -1,0 +1,6 @@
+{
+  "name": "SaarthiAI",
+  "description": "Your real-time food decision guide. SaarthiAI uses gentle AI-powered nudges and 3D insights to help you make mindful choices, one moment at a time.",
+  "requestFramePermissions": ["camera", "geolocation"],
+  "majorCapabilities": ["Smart Decision Support", "Awareness Guided Scan", "AI-Powered Guidance"]
+}
